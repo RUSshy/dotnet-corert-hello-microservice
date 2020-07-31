@@ -3,9 +3,12 @@
 A hello world microservice written in C# using CoreRT, adapted from: https://github.com/ktenzer/go-hello-world
 
 - AOT Compiled
-- Tiny self contained executable: only 1.8mb!!
+- Tiny self contained executable: only 1.8mb!! 
 - Reponse serialized using System.Json
 - Reflection-free
+
+![Image of file size](https://i.imgur.com/l1WFRB4.png)
+
 
 ## Usage 
 
