@@ -1,0 +1,6 @@
+<Directives>
+    <Application>
+        <!--<Namespace Name="Leopotam.Ecs" Activate="Required All" />-->
+        <!--<Assembly Name="Arc" Activate="Required All" />-->
+    </Application>
+</Directives>
