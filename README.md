@@ -9,6 +9,7 @@ A hello world microservice written in C# using CoreRT, adapted from: https://git
 
 ## Usage 
 
+- ``cd HelloMicroservice``
 - ``dotnet publish -c release -r win-x64`` | linux-x64 | osx-x64
 - ``cd dist``
 - ``HelloMicroservice.exe``
