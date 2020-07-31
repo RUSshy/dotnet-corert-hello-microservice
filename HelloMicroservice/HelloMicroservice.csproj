@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net5.0</TargetFramework>
+        <!-- Tweaks -->
+        <TieredCompilation>false</TieredCompilation>
+        <SelfContained>false</SelfContained>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.DotNet.ILCompiler" Version="1.0.0-alpha-29114-02" />
+    </ItemGroup>
+
+    <ItemGroup Condition="true">
+        <RdXmlFile Visible="false" Include="rd.xml" />
+        <IlcArg Visible="false" Include="--removefeature:EventSource" />
+        <IlcArg Visible="false" Include="--removefeature:FrameworkStrings" />
+        <IlcArg Visible="false" Include="--removefeature:SerializationGuard" />
+        <AppContextSwitchOverrides Visible="False" Include="Switch.System.Reflection.Disabled.DoNotThrowForAssembly" />
+        <AppContextSwitchOverrides Visible="False" Include="Switch.System.Reflection.Disabled.DoNotThrowForAttributes" />
+        <AppContextSwitchOverrides Visible="False" Include="Switch.System.Reflection.Disabled.DoNotThrowForGetDllImportSearchPathFlags" />
+    </ItemGroup>
+    <PropertyGroup Condition="true">
+        <IlcGenerateMapFile>false</IlcGenerateMapFile>
+
+        <IlcDisableReflection>true</IlcDisableReflection>
+
+        <RootAllApplicationAssemblies>false</RootAllApplicationAssemblies>
+        <IlcGenerateCompleteTypeMetadata>false</IlcGenerateCompleteTypeMetadata>
+
+        <IlcGenerateStackTraceData>false</IlcGenerateStackTraceData>
+
+        <IlcInvariantGlobalization>true</IlcInvariantGlobalization>
+        <IlcOptimizationPreference>Size</IlcOptimizationPreference>
+        <IlcFoldIdenticalMethodBodies>true</IlcFoldIdenticalMethodBodies>
+
+    </PropertyGroup>
+
+    <!-- Copy native exe to dist folder -->
+    <Target Name="Copy" AfterTargets="ComputeFilesToPublish">
+        <Copy SourceFiles="$(OutDir)native\$(ProjectName).exe" DestinationFolder="dist\" />
+    </Target>
+
+</Project>
