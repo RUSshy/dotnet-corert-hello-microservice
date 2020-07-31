@@ -5,7 +5,7 @@ A hello world microservice written in C# using CoreRT, adapted from: https://git
 - AOT Compiled
 - Tiny executable: 1.8mb
 - Reponse serialized using System.Json
-
+- Reflection-free
 
 ## Usage 
 
