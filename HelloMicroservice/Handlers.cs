@@ -20,18 +20,15 @@ namespace HelloMicroservice
                     Indented = true
                 };
 
-                using (var stream = new MemoryStream())
-                {
-                    using (var writer = new Utf8JsonWriter(stream, options))
-                    {
-                        writer.WriteStartObject();
-                        writer.WriteString("msg", msg);
-                        writer.WriteString("version", version);
-                        writer.WriteEndObject();
-                    }
+                using var stream = new MemoryStream();
+                using var writer = new Utf8JsonWriter(stream, options);
+                
+                writer.WriteStartObject();
+                writer.WriteString("msg", msg);
+                writer.WriteString("version", version);
+                writer.WriteEndObject();
 
-                    return stream.ToArray();
-                }
+                return stream.ToArray();
             }
         }
         
